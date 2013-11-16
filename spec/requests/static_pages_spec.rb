@@ -40,4 +40,16 @@ describe "StaticPages" do
       page.should have_title("Ruby on Rails Tutorial Sample App | About Us")
     end
   end
+
+  describe "Contact page" do
+    it "should have content 'Contact'" do
+      visit static_pages_contact_path
+      page.should have_content('Contact')
+    end
+
+    it 'should have the correct title' do
+      visit static_pages_contact_path
+      page.should have_title("Ruby on Rails Tutorial Sample App | Contact")
+    end
+  end
 end
