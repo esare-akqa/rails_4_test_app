@@ -14,7 +14,12 @@ describe "StaticPages" do
 
     it 'should have the correct title' do
       visit static_pages_home_path
-      page.should have_title("#{base_title} | Home")
+      page.should have_title("#{base_title}")
+    end
+
+    it 'should not have Home in title' do
+      visit static_pages_home_path
+      page.should_not have_title("| Home")
     end
   end
 
