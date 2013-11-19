@@ -5,10 +5,7 @@
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
-  <!--[if lt IE 9]>
-  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-  <![endif]-->
-</head>
+  <%= render 'layouts/shim' %>
 <body>
   <header class="navbar navbar-fixed-top navbar-inverse">
     <div class="navbar-inner">
@@ -26,6 +23,7 @@
   </header>
   <div class="container">
     <%= yield %>
+    <%= render 'layouts/footer' %>
   </div>
 </body>
 </html>
