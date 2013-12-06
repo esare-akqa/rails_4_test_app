@@ -25,5 +25,5 @@ Then /^they should see their profile page$/ do
 end
 
 Then /^they should see a signout link$/ do
-  page.should have_link('Sign out')
+  page.should have_link('Sign out', href: signout_path)
 end

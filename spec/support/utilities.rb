@@ -1,5 +1,13 @@
 include ApplicationHelper
-# def full_title(page_title='')
-#   base_title = 'Best app in the universe'
-#   page_title.empty? ? base_title : "#{base_title} | #{page_title}" 
-# end
+
+def valid_signin(user)
+  fill_in 'Email', with: user.name
+  fill_in 'password', with: user.password
+  click_button 'Sign in'
+end
+
+RSpec::Matchers.define :have_error_message do |message|
+  match do |page|
+    expect(page).to have_selector('div.alert.alert-error', text: message)
+  end
+end
