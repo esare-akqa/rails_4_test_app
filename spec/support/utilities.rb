@@ -20,12 +20,6 @@ def valid_signin(user)
   click_button 'Sign in'
 end
 
-def check_form_values
-  puts page.find('#email')[:type]
-  email = page.find('#email')[:value]
-  puts "email value: #{email}"
-end
-
 RSpec::Matchers.define :have_error_message do |message|
   match do |page|
     expect(page).to have_selector('div.alert.alert-error', text: message)
