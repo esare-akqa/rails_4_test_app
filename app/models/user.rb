@@ -2,7 +2,7 @@ require 'bcrypt'
 
 class User < ActiveRecord::Base
   include BCrypt
-  has_many :microposts
+  has_many :microposts, dependent: :destroy
   has_secure_password
 
   validates :name,  :presence => true, length: { maximum: 50 }
