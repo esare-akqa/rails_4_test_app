@@ -7,7 +7,10 @@ class MicropostsController < ApplicationController
       flash[:success] = 'Micropost posted'
       redirect_to root_url
     else
-      render 'static_pages/home'
+      @feed_items = current_user.feed.paginate(page: params[:page])
+      # render 'static_pages/home'
+      flash[:error] = 'error with submitting'
+      redirect_to root_path
     end
   end
 
@@ -15,7 +18,7 @@ class MicropostsController < ApplicationController
   end
 
   private
-  
+
     def micropost_params
       params.require(:micropost).permit(:content)
     end
