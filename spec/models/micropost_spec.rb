@@ -27,5 +27,6 @@ describe Micropost do
     before { @micropost.content = 'a' * 141 }
     it { should_not be_valid }
   end
+
   
 end
