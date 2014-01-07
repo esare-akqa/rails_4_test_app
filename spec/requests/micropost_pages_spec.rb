@@ -41,4 +41,16 @@ describe "Micropost pages" do
     end
   end
 
+  describe 'pagination' do
+    before do 
+      40.times { FactoryGirl.create(:micropost, user: user) } 
+      visit root_path
+    end
+
+    it { should have_selector('.pagination')}
+    it 'should have 30 micropost on first page' do
+      page.all('.micropost li').count.should eq(30)
+    end
+  end
+
 end

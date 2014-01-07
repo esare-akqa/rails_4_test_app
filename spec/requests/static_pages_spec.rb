@@ -73,12 +73,8 @@ describe "StaticPages" do
       end
     end
 
-
-
-
-
-
-
+    it { should have_content('2 microposts') }
+    
 
   end
 
